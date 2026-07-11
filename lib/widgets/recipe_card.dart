@@ -42,7 +42,7 @@ class RecipeCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.06),
+              color: Colors.black.withValues(alpha: 0.06),
               blurRadius: 12,
               offset: const Offset(0, 6),
             ),
@@ -51,31 +51,38 @@ class RecipeCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Image area — uses a gradient + icon placeholder since we have
-            // no real asset images. Swap this Container for Image.asset(...)
-            // later if you add real photos to assets/images/.
+            // Real recipe photo, with a gradient+icon fallback if the
+            // asset is missing (e.g. filename typo or not yet added).
             Hero(
               tag: 'recipe_${recipe.id}',
               child: Stack(
                 children: [
-                  Container(
-                    height: 120,
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      borderRadius:
-                          const BorderRadius.vertical(top: Radius.circular(20)),
-                      gradient: LinearGradient(
-                        colors: [
-                          AppColors.primaryGreen.withOpacity(0.85),
-                          AppColors.lightGreen.withOpacity(0.65),
-                        ],
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight,
+                  ClipRRect(
+                    borderRadius:
+                        const BorderRadius.vertical(top: Radius.circular(20)),
+                    child: Image.asset(
+                      recipe.image,
+                      height: 120,
+                      width: double.infinity,
+                      fit: BoxFit.cover,
+                      errorBuilder: (context, error, stackTrace) => Container(
+                        height: 120,
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: [
+                              AppColors.primaryGreen.withValues(alpha: 0.85),
+                              AppColors.lightGreen.withValues(alpha: 0.65),
+                            ],
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                          ),
+                        ),
+                        child: const Center(
+                          child: Icon(Icons.restaurant_menu,
+                              color: Colors.white, size: 40),
+                        ),
                       ),
-                    ),
-                    child: const Center(
-                      child: Icon(Icons.restaurant_menu,
-                          color: Colors.white, size: 40),
                     ),
                   ),
                   Positioned(top: 8, right: 8, child: FavoriteButton(recipeId: recipe.id)),

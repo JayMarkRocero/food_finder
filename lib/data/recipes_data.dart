@@ -10,7 +10,7 @@ final List<Recipe> recipesData = [
         'A classic Filipino braise of chicken simmered in soy sauce, vinegar, garlic, and bay leaf until deeply savory and tender.',
     category: 'Filipino',
     difficulty: 'Easy',
-    image: 'adobo',
+    imageUrl: 'assets/images/adobo.webp',
     ingredients: [
       '1 kg chicken thighs and drumsticks',
       '1/2 cup soy sauce',

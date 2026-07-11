@@ -238,7 +238,10 @@ class _AddEditRecipeScreenState extends State<AddEditRecipeScreen> {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           gradient: LinearGradient(
-            colors: [theme.colorScheme.primary.withOpacity(0.8), theme.colorScheme.primary.withOpacity(0.4)],
+            colors: [
+              theme.colorScheme.primary.withValues(alpha: 0.8),
+              theme.colorScheme.primary.withValues(alpha: 0.4),
+            ],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),

@@ -81,17 +81,39 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen> {
             flexibleSpace: FlexibleSpaceBar(
               background: Hero(
                 tag: 'recipe_${recipe.id}',
-                child: Container(
-                  decoration: const BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [AppColors.primaryGreen, AppColors.lightGreen],
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
+                child: Stack(
+                  fit: StackFit.expand,
+                  children: [
+                    Image.asset(
+                      recipe.image,
+                      fit: BoxFit.cover,
+                      errorBuilder: (context, error, stackTrace) => Container(
+                        decoration: const BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: [AppColors.primaryGreen, AppColors.lightGreen],
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                          ),
+                        ),
+                        child: const Center(
+                          child: Icon(Icons.restaurant_menu, color: Colors.white, size: 80),
+                        ),
+                      ),
                     ),
-                  ),
-                  child: const Center(
-                    child: Icon(Icons.restaurant_menu, color: Colors.white, size: 80),
-                  ),
+                    // Subtle bottom scrim so the back button and collapsed
+                    // title stay legible over any photo.
+                    Positioned.fill(
+                      child: DecoratedBox(
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: [Colors.black.withValues(alpha: 0.35), Colors.transparent],
+                            begin: Alignment.bottomCenter,
+                            end: Alignment.center,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
@@ -275,7 +297,7 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen> {
   Widget _badge(String label, Color color) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-      decoration: BoxDecoration(color: color.withOpacity(0.15), borderRadius: BorderRadius.circular(50)),
+      decoration: BoxDecoration(color: color.withValues(alpha: 0.15), borderRadius: BorderRadius.circular(50)),
       child: Text(label, style: TextStyle(color: color, fontWeight: FontWeight.w600, fontSize: 12)),
     );
   }
@@ -346,7 +368,7 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen> {
       confirmLabel: 'Delete',
       isDestructive: true,
     );
-    if (!confirmed) return;
+    if (!confirmed || !context.mounted) return;
 
     final recipeProvider = context.read<RecipeProvider>();
     final index = recipeProvider.recipes.indexWhere((r) => r.id == recipe.id);

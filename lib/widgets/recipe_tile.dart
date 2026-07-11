@@ -25,7 +25,7 @@ class RecipeTile extends StatelessWidget {
           borderRadius: BorderRadius.circular(18),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.05),
+              color: Colors.black.withValues(alpha: 0.05),
               blurRadius: 10,
               offset: const Offset(0, 4),
             ),
@@ -35,21 +35,29 @@ class RecipeTile extends StatelessWidget {
           children: [
             Hero(
               tag: 'recipe_tile_${recipe.id}',
-              child: Container(
-                width: 76,
-                height: 76,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(14),
-                  gradient: LinearGradient(
-                    colors: [
-                      AppColors.primaryGreen.withOpacity(0.85),
-                      AppColors.lightGreen.withOpacity(0.65),
-                    ],
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(14),
+                child: Image.asset(
+                  recipe.image,
+                  width: 76,
+                  height: 76,
+                  fit: BoxFit.cover,
+                  errorBuilder: (context, error, stackTrace) => Container(
+                    width: 76,
+                    height: 76,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [
+                          AppColors.primaryGreen.withValues(alpha: 0.85),
+                          AppColors.lightGreen.withValues(alpha: 0.65),
+                        ],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                      ),
+                    ),
+                    child: const Icon(Icons.restaurant, color: Colors.white, size: 28),
                   ),
                 ),
-                child: const Icon(Icons.restaurant, color: Colors.white, size: 28),
               ),
             ),
             const SizedBox(width: 12),
