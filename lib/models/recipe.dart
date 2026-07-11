@@ -4,14 +4,14 @@ class Recipe {
   final String id;
   final String name;
   final String description;
-  final String category; // e.g. "Breakfast", "Filipino", "Dessert"
+  final List<String> categories; // e.g. ["Filipino", "Chicken", "Lunch"]
   final String difficulty; // "Easy", "Medium", "Hard"
-  final String image; // asset path OR icon key
+  final String imageUrl;
   final List<String> ingredients;
   final List<String> steps;
   final List<String> tips;
-  final int preparationTime; // in minutes
-  final int cookingTime; // in minutes
+  final int preparationTime;
+  final int cookingTime;
   final int servings;
 
   // Nutrition
@@ -33,9 +33,9 @@ class Recipe {
     required this.id,
     required this.name,
     required this.description,
-    required this.category,
+    required this.categories,
     required this.difficulty,
-    required this.image,
+    required this.imageUrl,
     required this.ingredients,
     required this.steps,
     required this.tips,
@@ -62,9 +62,9 @@ class Recipe {
     String? id,
     String? name,
     String? description,
-    String? category,
+    List<String>? categories,
     String? difficulty,
-    String? image,
+    String? imageUrl,
     List<String>? ingredients,
     List<String>? steps,
     List<String>? tips,
@@ -88,9 +88,9 @@ class Recipe {
       id: id ?? this.id,
       name: name ?? this.name,
       description: description ?? this.description,
-      category: category ?? this.category,
+      categories: categories ?? this.categories,
       difficulty: difficulty ?? this.difficulty,
-      image: image ?? this.image,
+      imageUrl: imageUrl ?? this.imageUrl,
       ingredients: ingredients ?? this.ingredients,
       steps: steps ?? this.steps,
       tips: tips ?? this.tips,

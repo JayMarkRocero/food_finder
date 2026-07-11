@@ -38,7 +38,7 @@ class RecipeTile extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(14),
                 child: Image.asset(
-                  recipe.image,
+                  recipe.imageUrl,
                   width: 76,
                   height: 76,
                   fit: BoxFit.cover,
@@ -73,7 +73,9 @@ class RecipeTile extends StatelessWidget {
                   ),
                   const SizedBox(height: 4),
                   Text(
-                    recipe.category,
+                    recipe.categories.join(', '),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
                     style: theme.textTheme.bodySmall,
                   ),
                   const SizedBox(height: 6),

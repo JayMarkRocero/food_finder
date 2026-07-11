@@ -8,7 +8,7 @@ final List<Recipe> recipesData = [
     name: 'Chicken Adobo',
     description:
         'A classic Filipino braise of chicken simmered in soy sauce, vinegar, garlic, and bay leaf until deeply savory and tender.',
-    category: 'Filipino',
+    categories: ['Filipino', 'Chicken', 'Lunch', 'Dinner'],
     difficulty: 'Easy',
     imageUrl: 'assets/images/adobo.webp',
     ingredients: [
@@ -53,9 +53,9 @@ final List<Recipe> recipesData = [
     name: 'Pork Sinigang',
     description:
         'A sour and savory Filipino soup made with pork, tamarind broth, and fresh vegetables.',
-    category: 'Soup',
+    categories: ['Filipino', 'Pork', 'Soup'],
     difficulty: 'Medium',
-    image: 'sinigang',
+    imageUrl: 'assets/images/sinigang.jpg',
     ingredients: [
       '500g pork belly, cubed',
       '1 packet tamarind soup base',
@@ -99,9 +99,9 @@ final List<Recipe> recipesData = [
     name: 'Beef Caldereta',
     description:
         'A rich and hearty Filipino beef stew cooked in tomato sauce with liver spread, potatoes, and bell peppers.',
-    category: 'Beef',
+    categories: ['Filipino', 'Beef', 'Dinner'],
     difficulty: 'Medium',
-    image: 'caldereta',
+    imageUrl: 'assets/images/beef.jpeg',
     ingredients: [
       '1 kg beef chuck, cubed',
       '1 cup tomato sauce',
@@ -145,9 +145,9 @@ final List<Recipe> recipesData = [
     name: 'Pancit Bihon',
     description:
         'Stir-fried rice noodles with vegetables, chicken, and shrimp — a Filipino party staple believed to bring long life.',
-    category: 'Filipino',
+    categories: ['Filipino', 'Chicken', 'Seafood'],
     difficulty: 'Easy',
-    image: 'pancit',
+    imageUrl: 'assets/images/pancit.jpg',
     ingredients: [
       '300g rice noodles (bihon), soaked',
       '200g chicken breast, sliced thin',
@@ -190,9 +190,9 @@ final List<Recipe> recipesData = [
     name: 'Lumpiang Shanghai',
     description:
         'Crispy Filipino spring rolls filled with seasoned ground pork, perfect as an appetizer or party snack.',
-    category: 'Snacks',
+    categories: ['Filipino', 'Pork', 'Snacks'],
     difficulty: 'Medium',
-    image: 'lumpia',
+    imageUrl: 'assets/images/lumpia.jpg',
     ingredients: [
       '500g ground pork',
       '1 carrot, minced',
@@ -236,9 +236,9 @@ final List<Recipe> recipesData = [
     name: 'Sinangag (Garlic Fried Rice)',
     description:
         'Crispy garlic fried rice — the essential base of any Filipino breakfast "silog" meal.',
-    category: 'Rice',
+    categories: ['Filipino', 'Rice', 'Breakfast'],
     difficulty: 'Easy',
-    image: 'sinangag',
+    imageUrl: 'assets/images/sinangag.jpg',
     ingredients: [
       '4 cups day-old rice',
       '6 cloves garlic, minced',
@@ -277,9 +277,9 @@ final List<Recipe> recipesData = [
     name: 'Tapsilog',
     description:
         'Cured beef tapa served with garlic fried rice and a fried egg — the ultimate Filipino breakfast combo.',
-    category: 'Breakfast',
+    categories: ['Filipino', 'Beef', 'Breakfast'],
     difficulty: 'Easy',
-    image: 'tapsilog',
+    imageUrl: 'assets/images/tapsilog.jpg',
     ingredients: [
       '400g beef sirloin, thinly sliced',
       '1/4 cup soy sauce',
@@ -320,9 +320,9 @@ final List<Recipe> recipesData = [
     name: 'Bicol Express',
     description:
         'A spicy Filipino pork dish simmered in coconut milk with shrimp paste and chili peppers.',
-    category: 'Pork',
+    categories: ['Filipino', 'Pork'],
     difficulty: 'Medium',
-    image: 'bicol_express',
+    imageUrl: 'assets/images/bicol_express.jpg',
     ingredients: [
       '500g pork belly, sliced thin',
       '2 cups coconut milk',
@@ -365,9 +365,9 @@ final List<Recipe> recipesData = [
     name: 'Fresh Fruit Salad',
     description:
         'A refreshing mix of seasonal fruits tossed in a light creamy dressing — a crowd-pleasing healthy dessert.',
-    category: 'Dessert',
+    categories: ['Dessert', 'Healthy', 'Vegetarian'],
     difficulty: 'Easy',
-    image: 'fruit_salad',
+    imageUrl: 'assets/images/fruitsalad.jpg',
     ingredients: [
       '1 cup diced mango',
       '1 cup diced apple',
@@ -407,9 +407,9 @@ final List<Recipe> recipesData = [
     name: 'Spaghetti Carbonara',
     description:
         'A creamy Italian pasta dish made with egg, pancetta, Parmesan, and cracked black pepper.',
-    category: 'Pasta',
+    categories: ['Italian', 'Pasta'],
     difficulty: 'Medium',
-    image: 'carbonara',
+    imageUrl: 'assets/images/carbonara.webp',
     ingredients: [
       '400g spaghetti',
       '150g pancetta, diced',
@@ -446,15 +446,14 @@ final List<Recipe> recipesData = [
     dateCreated: DateTime(2024, 1, 21),
     dateUpdated: DateTime(2024, 1, 21),
   ),
-
   Recipe(
     id: 'r11',
     name: 'Classic Margherita Pizza',
     description:
         'A simple Italian pizza topped with San Marzano tomato sauce, fresh mozzarella, and basil leaves.',
-    category: 'Italian',
+    categories: ['Italian'],
     difficulty: 'Medium',
-    image: 'pizza',
+    imageUrl: 'assets/images/pizza.jpeg',
     ingredients: [
       '1 pizza dough ball',
       '1/2 cup crushed tomatoes',
@@ -497,9 +496,9 @@ final List<Recipe> recipesData = [
     name: 'Classic Beef Burger',
     description:
         'A juicy American-style beef burger with cheese, lettuce, tomato, and a toasted bun.',
-    category: 'American',
+    categories: ['American', 'Beef'],
     difficulty: 'Easy',
-    image: 'burger',
+    imageUrl: 'assets/images/burger.webp',
     ingredients: [
       '500g ground beef (80/20)',
       '4 burger buns',
@@ -542,9 +541,9 @@ final List<Recipe> recipesData = [
     name: 'Shrimp Fried Rice',
     description:
         'A quick Asian-inspired fried rice loaded with shrimp, egg, and vegetables in savory soy seasoning.',
-    category: 'Asian',
+    categories: ['Asian', 'Seafood', 'Rice'],
     difficulty: 'Easy',
-    image: 'shrimp_fried_rice',
+    imageUrl: 'assets/images/shrimp_rice.jpg',
     ingredients: [
       '3 cups day-old rice',
       '250g shrimp, peeled',
@@ -587,9 +586,9 @@ final List<Recipe> recipesData = [
     name: 'Grilled Salmon with Lemon Butter',
     description:
         'A healthy seafood dish featuring flaky grilled salmon finished with a bright lemon butter sauce.',
-    category: 'Seafood',
+    categories: ['Seafood', 'Healthy'],
     difficulty: 'Medium',
-    image: 'salmon',
+    imageUrl: 'assets/images/salmon.jpg',
     ingredients: [
       '4 salmon fillets',
       '3 tbsp butter',
@@ -631,9 +630,9 @@ final List<Recipe> recipesData = [
     name: 'Vegetable Stir Fry',
     description:
         'A colorful, healthy medley of crisp vegetables stir-fried in a light garlic soy sauce.',
-    category: 'Vegetarian',
+    categories: ['Vegetarian', 'Healthy', 'Asian'],
     difficulty: 'Easy',
-    image: 'veggie_stirfry',
+    imageUrl: 'assets/images/veggie_fry.jpg',
     ingredients: [
       '1 cup broccoli florets',
       '1 carrot, sliced',
@@ -676,9 +675,9 @@ final List<Recipe> recipesData = [
     name: 'Mango Shake',
     description:
         'A thick and creamy Filipino-style mango shake made with ripe mangoes and milk.',
-    category: 'Drinks',
+    categories: ['Drinks', 'Filipino'],
     difficulty: 'Easy',
-    image: 'mango_shake',
+    imageUrl: 'assets/images/mango_shake.png',
     ingredients: [
       '2 cups ripe mango, cubed',
       '1 cup milk',
@@ -715,9 +714,9 @@ final List<Recipe> recipesData = [
     name: 'Chicken Tinola',
     description:
         'A comforting Filipino ginger chicken soup with green papaya and chili leaves.',
-    category: 'Soup',
+    categories: ['Filipino', 'Chicken', 'Soup'],
     difficulty: 'Easy',
-    image: 'tinola',
+    imageUrl: 'assets/images/tinola.jpg',
     ingredients: [
       '600g chicken, cut into pieces',
       '1 thumb ginger, sliced',
@@ -760,9 +759,9 @@ final List<Recipe> recipesData = [
     name: 'Beef Bulgogi',
     description:
         'Korean-style marinated beef, grilled until caramelized and packed with sweet-savory flavor.',
-    category: 'Asian',
+    categories: ['Asian', 'Beef'],
     difficulty: 'Medium',
-    image: 'bulgogi',
+    imageUrl: 'assets/images/bulgogi.jpg',
     ingredients: [
       '500g beef sirloin, thinly sliced',
       '4 tbsp soy sauce',
@@ -805,9 +804,9 @@ final List<Recipe> recipesData = [
     name: 'Buttered Garlic Shrimp',
     description:
         'Succulent shrimp sautéed in garlic butter — a quick, indulgent seafood favorite.',
-    category: 'Seafood',
+    categories: ['Seafood'],
     difficulty: 'Easy',
-    image: 'garlic_shrimp',
+    imageUrl: 'assets/images/garlic_shrimp.jpg',
     ingredients: [
       '500g shrimp, deveined',
       '4 tbsp butter',
@@ -848,9 +847,9 @@ final List<Recipe> recipesData = [
     name: 'Classic Pancakes',
     description:
         'Fluffy American-style breakfast pancakes served with butter and maple syrup.',
-    category: 'Breakfast',
+    categories: ['American', 'Breakfast'],
     difficulty: 'Easy',
-    image: 'pancakes',
+    imageUrl: 'assets/images/pancake.jpg',
     ingredients: [
       '2 cups all-purpose flour',
       '2 tbsp sugar',
@@ -893,9 +892,9 @@ final List<Recipe> recipesData = [
     name: 'Chicken Curry',
     description:
         'A fragrant Asian-style chicken curry simmered in coconut milk with warm spices.',
-    category: 'Chicken',
+    categories: ['Asian', 'Chicken'],
     difficulty: 'Medium',
-    image: 'chicken_curry',
+    imageUrl: 'assets/images/chicken_curry.jpg',
     ingredients: [
       '600g chicken thighs, cut into pieces',
       '2 cups coconut milk',
@@ -939,9 +938,9 @@ final List<Recipe> recipesData = [
     name: 'Beef Nachos',
     description:
         'Loaded American-style nachos topped with seasoned ground beef, cheese, and fresh toppings.',
-    category: 'American',
+    categories: ['American', 'Beef', 'Snacks'],
     difficulty: 'Easy',
-    image: 'nachos',
+    imageUrl: 'assets/images/nachos.jpg',
     ingredients: [
       '300g tortilla chips',
       '400g ground beef',
@@ -984,9 +983,9 @@ final List<Recipe> recipesData = [
     name: 'Vegetable Minestrone Soup',
     description:
         'A hearty Italian vegetable soup with beans, pasta, and tomatoes — healthy and filling.',
-    category: 'Healthy',
+    categories: ['Italian', 'Soup', 'Healthy', 'Vegetarian'],
     difficulty: 'Easy',
-    image: 'minestrone',
+    imageUrl: 'assets/images/minestrone.webp',
     ingredients: [
       '1 onion, chopped',
       '2 carrots, diced',
@@ -1030,9 +1029,9 @@ final List<Recipe> recipesData = [
     name: 'Grilled Pork Barbecue Skewers',
     description:
         'Sweet and smoky Filipino-style pork skewers marinated and grilled to charred perfection.',
-    category: 'Pork',
+    categories: ['Filipino', 'Pork'],
     difficulty: 'Medium',
-    image: 'pork_bbq',
+    imageUrl: 'assets/images/bbq.jpeg',
     ingredients: [
       '600g pork shoulder, sliced',
       '1/2 cup soy sauce',
@@ -1074,9 +1073,9 @@ final List<Recipe> recipesData = [
     name: 'Iced Coffee Float',
     description:
         'A refreshing cold coffee drink topped with a scoop of creamy vanilla ice cream.',
-    category: 'Drinks',
+    categories: ['Drinks', 'American'],
     difficulty: 'Easy',
-    image: 'iced_coffee',
+    imageUrl: 'assets/images/coffee.jpg',
     ingredients: [
       '1 cup brewed coffee, chilled',
       '2 tbsp condensed milk',
@@ -1114,9 +1113,9 @@ final List<Recipe> recipesData = [
     name: 'Baked Chicken Parmesan',
     description:
         'Crispy breaded chicken breast baked with marinara sauce and melted mozzarella, Italian-American style.',
-    category: 'Italian',
+    categories: ['Italian', 'Chicken'],
     difficulty: 'Medium',
-    image: 'chicken_parm',
+    imageUrl: 'assets/images/chicken_parm.jpg',
     ingredients: [
       '4 chicken breasts, flattened',
       '1 cup breadcrumbs',
@@ -1158,9 +1157,9 @@ final List<Recipe> recipesData = [
     name: 'Chicken Sopas',
     description:
         'A creamy Filipino macaroni soup with shredded chicken and vegetables — comfort food for rainy days.',
-    category: 'Soup',
+    categories: ['Filipino', 'Chicken', 'Soup'],
     difficulty: 'Easy',
-    image: 'sopas',
+    imageUrl: 'assets/images/sopas.webp',
     ingredients: [
       '300g chicken breast, boiled and shredded',
       '1 cup elbow macaroni',
@@ -1203,9 +1202,9 @@ final List<Recipe> recipesData = [
     name: 'Beef Steak Tagalog (Bistek)',
     description:
         'Tender beef slices braised in soy sauce, calamansi, and onions — a Filipino home-cooking classic.',
-    category: 'Beef',
+    categories: ['Filipino', 'Beef'],
     difficulty: 'Easy',
-    image: 'bistek',
+    imageUrl: 'assets/images/bistek.jpg',
     ingredients: [
       '500g beef sirloin, thinly sliced',
       '1/3 cup soy sauce',
@@ -1247,9 +1246,9 @@ final List<Recipe> recipesData = [
     name: 'Chocolate Lava Cake',
     description:
         'A decadent individual chocolate cake with a warm, molten center — an elegant dessert.',
-    category: 'Dessert',
+    categories: ['Dessert'],
     difficulty: 'Hard',
-    image: 'lava_cake',
+    imageUrl: 'assets/images/lavacake.png',
     ingredients: [
       '100g dark chocolate, chopped',
       '100g butter',
@@ -1292,9 +1291,9 @@ final List<Recipe> recipesData = [
     name: 'Overnight Oats with Berries',
     description:
         'A healthy, no-cook breakfast of oats soaked overnight in milk, topped with fresh berries and honey.',
-    category: 'Healthy',
+    categories: ['Healthy', 'Breakfast', 'Vegetarian'],
     difficulty: 'Easy',
-    image: 'overnight_oats',
+    imageUrl: 'assets/images/oats.webp',
     ingredients: [
       '1 cup rolled oats',
       '1 cup milk (or plant-based milk)',

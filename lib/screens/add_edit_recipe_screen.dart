@@ -32,7 +32,7 @@ class _AddEditRecipeScreenState extends State<AddEditRecipeScreen> {
   late TextEditingController _fiberController;
   late TextEditingController _authorController;
 
-  String _selectedCategory = categoriesData.first.name;
+  final Set<String> _selectedCategories = {};
   String _selectedDifficulty = 'Easy';
   String _selectedImage = 'placeholder';
 
@@ -62,9 +62,9 @@ class _AddEditRecipeScreenState extends State<AddEditRecipeScreen> {
     _authorController = TextEditingController(text: r?.author ?? 'You');
 
     if (r != null) {
-      _selectedCategory = r.category;
+      _selectedCategories.addAll(r.categories);
       _selectedDifficulty = r.difficulty;
-      _selectedImage = r.image;
+      _selectedImage = r.imageUrl;
       _ingredientControllers = r.ingredients.map((i) => TextEditingController(text: i)).toList();
       _stepControllers = r.steps.map((s) => TextEditingController(text: s)).toList();
       _tipControllers = r.tips.map((t) => TextEditingController(text: t)).toList();
@@ -112,11 +112,29 @@ class _AddEditRecipeScreenState extends State<AddEditRecipeScreen> {
             _textField(_descriptionController, 'Description', maxLines: 3, validator: _requiredValidator),
             const SizedBox(height: 14),
 
-            _dropdownField(
-              label: 'Category',
-              value: _selectedCategory,
-              items: categoriesData.map((c) => c.name).toList(),
-              onChanged: (v) => setState(() => _selectedCategory = v!),
+            Text('Categories', style: Theme.of(context).textTheme.titleMedium),
+            const SizedBox(height: 4),
+            Text('Select all that apply', style: Theme.of(context).textTheme.bodySmall),
+            const SizedBox(height: 10),
+            Wrap(
+              spacing: 8,
+              runSpacing: 8,
+              children: categoriesData.map((c) {
+                final selected = _selectedCategories.contains(c.name);
+                return FilterChip(
+                  label: Text(c.name),
+                  selected: selected,
+                  onSelected: (isSelected) {
+                    setState(() {
+                      if (isSelected) {
+                        _selectedCategories.add(c.name);
+                      } else {
+                        _selectedCategories.remove(c.name);
+                      }
+                    });
+                  },
+                );
+              }).toList(),
             ),
             const SizedBox(height: 14),
             _dropdownField(
@@ -403,6 +421,12 @@ class _AddEditRecipeScreenState extends State<AddEditRecipeScreen> {
       );
       return;
     }
+    if (_selectedCategories.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Please select at least 1 category.')),
+      );
+      return;
+    }
 
     final now = DateTime.now();
 
@@ -410,9 +434,9 @@ class _AddEditRecipeScreenState extends State<AddEditRecipeScreen> {
       final updated = widget.existingRecipe!.copyWith(
         name: name,
         description: _descriptionController.text.trim(),
-        category: _selectedCategory,
+        categories: _selectedCategories.toList(),
         difficulty: _selectedDifficulty,
-        image: _selectedImage,
+        imageUrl: _selectedImage,
         ingredients: ingredients,
         steps: steps,
         tips: tips,
@@ -433,9 +457,9 @@ class _AddEditRecipeScreenState extends State<AddEditRecipeScreen> {
         id: 'r${now.microsecondsSinceEpoch}',
         name: name,
         description: _descriptionController.text.trim(),
-        category: _selectedCategory,
+        categories: _selectedCategories.toList(),
         difficulty: _selectedDifficulty,
-        image: _selectedImage,
+        imageUrl: _selectedImage,
         ingredients: ingredients,
         steps: steps,
         tips: tips,

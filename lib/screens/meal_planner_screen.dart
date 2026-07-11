@@ -124,7 +124,7 @@ class MealPlannerScreen extends StatelessWidget {
                         final recipe = recipeProvider.recipes[index];
                         return ListTile(
                           title: Text(recipe.name),
-                          subtitle: Text(recipe.category),
+                          subtitle: Text(recipe.categories.join(', ')),
                           onTap: () {
                             mealPlanner.assignRecipe(day, mealType, recipe.id);
                             Navigator.pop(context);

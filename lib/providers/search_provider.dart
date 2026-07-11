@@ -98,17 +98,17 @@ class SearchProvider extends ChangeNotifier {
       final q = _query.toLowerCase();
       final matchesQuery = q.isEmpty ||
           r.name.toLowerCase().contains(q) ||
-          r.category.toLowerCase().contains(q) ||
+          r.categories.any((c) => c.toLowerCase().contains(q)) ||
           r.difficulty.toLowerCase().contains(q) ||
           r.ingredients.any((i) => i.toLowerCase().contains(q));
 
       final matchesCategory =
-          _categoryFilter == null || r.category == _categoryFilter;
+          _categoryFilter == null || r.categories.contains(_categoryFilter);
       final matchesDifficulty =
           _difficultyFilter == null || r.difficulty == _difficultyFilter;
       final matchesFavorite = !_favoritesOnly || favoriteIds.contains(r.id);
       final matchesHealthy = !_healthyOnly || r.calories < 300;
-      final matchesVeggie = !_vegetarianOnly || r.category == 'Vegetarian';
+      final matchesVeggie = !_vegetarianOnly || r.categories.contains('Vegetarian');
 
       return matchesQuery &&
           matchesCategory &&

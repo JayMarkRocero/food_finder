@@ -28,7 +28,7 @@ class RecipeProvider extends ChangeNotifier {
   }
 
   List<Recipe> getByCategory(String category) {
-    return _recipes.where((r) => r.category == category).toList();
+    return _recipes.where((r) => r.categories.contains(category)).toList();
   }
 
   List<Recipe> get recommended => _recipes.where((r) => r.recommended).toList();
@@ -46,7 +46,7 @@ class RecipeProvider extends ChangeNotifier {
   }
 
   List<Recipe> get healthyChoices =>
-      _recipes.where((r) => r.category == 'Healthy' || r.calories < 300).toList();
+      _recipes.where((r) => r.categories.contains('Healthy') || r.calories < 300).toList();
 
   // Call this whenever a user opens a recipe detail screen.
   void markAsViewed(String id) {
@@ -107,7 +107,7 @@ class RecipeProvider extends ChangeNotifier {
 
   List<Recipe> relatedTo(Recipe recipe) {
     return _recipes
-        .where((r) => r.category == recipe.category && r.id != recipe.id)
+        .where((r) => r.id != recipe.id && r.categories.any((c) => recipe.categories.contains(c)))
         .take(6)
         .toList();
   }

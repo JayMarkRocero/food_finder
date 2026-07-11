@@ -85,7 +85,7 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen> {
                   fit: StackFit.expand,
                   children: [
                     Image.asset(
-                      recipe.image,
+                      recipe.imageUrl,
                       fit: BoxFit.cover,
                       errorBuilder: (context, error, stackTrace) => Container(
                         decoration: const BoxDecoration(
@@ -139,10 +139,12 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen> {
                   const SizedBox(height: 8),
 
                   // Category + difficulty badges
+                  // Category + difficulty badges
                   Wrap(
                     spacing: 8,
+                    runSpacing: 8,
                     children: [
-                      _badge(recipe.category, AppColors.primaryGreen),
+                      ...recipe.categories.map((c) => _badge(c, AppColors.primaryGreen)),
                       _badge(recipe.difficulty, _difficultyColor(recipe.difficulty)),
                     ],
                   ),

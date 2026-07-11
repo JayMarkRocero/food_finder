@@ -61,7 +61,7 @@ class RecipeCard extends StatelessWidget {
                     borderRadius:
                         const BorderRadius.vertical(top: Radius.circular(20)),
                     child: Image.asset(
-                      recipe.image,
+                      recipe.imageUrl,
                       height: 120,
                       width: double.infinity,
                       fit: BoxFit.cover,

@@ -23,8 +23,11 @@ class StatisticsProvider extends ChangeNotifier {
     if (recipes.isEmpty) return '-';
     final counts = <String, int>{};
     for (final r in recipes) {
-      counts[r.category] = (counts[r.category] ?? 0) + 1;
+      for (final c in r.categories) {
+        counts[c] = (counts[c] ?? 0) + 1;
+      }
     }
+    if (counts.isEmpty) return '-';
     return counts.entries.reduce((a, b) => a.value >= b.value ? a : b).key;
   }
 
