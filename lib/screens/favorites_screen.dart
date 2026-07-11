@@ -7,7 +7,6 @@ import '../widgets/recipe_tile.dart';
 import '../widgets/empty_widget.dart';
 import '../widgets/confirmation_dialog.dart';
 import 'recipe_detail_screen.dart';
-import 'main_shell.dart';
 
 class FavoritesScreen extends StatelessWidget {
   const FavoritesScreen({super.key});

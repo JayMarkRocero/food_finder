@@ -31,8 +31,6 @@ class _SearchScreenState extends State<SearchScreen> {
     final recipeProvider = context.watch<RecipeProvider>();
     final favoriteProvider = context.watch<FavoriteProvider>();
     final searchProvider = context.watch<SearchProvider>();
-    final theme = Theme.of(context);
-
     final results = searchProvider.apply(recipeProvider.recipes, favoriteProvider.favoriteIds);
     final showHistory = searchProvider.query.isEmpty;
 

@@ -142,7 +142,7 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
               CircleAvatar(
-                backgroundColor: AppColors.primaryGreen.withOpacity(0.15),
+                backgroundColor: AppColors.primaryGreen.withValues(alpha: 0.15),
                 child: const Icon(Icons.person, color: AppColors.primaryGreen),
               ),
             ],
@@ -218,7 +218,7 @@ class HomeScreen extends StatelessWidget {
               ),
               Container(
                 padding: const EdgeInsets.all(14),
-                decoration: BoxDecoration(color: Colors.white.withOpacity(0.2), shape: BoxShape.circle),
+                decoration: BoxDecoration(color: Colors.white.withValues(alpha: 0.2), shape: BoxShape.circle),
                 child: const Icon(Icons.restaurant_menu, color: Colors.white, size: 30),
               ),
             ],
@@ -231,7 +231,6 @@ class HomeScreen extends StatelessWidget {
   // ---------- Quick Categories ----------
   Widget _buildQuickCategories(BuildContext context) {
     final recipeProvider = context.read<RecipeProvider>();
-    final theme = Theme.of(context);
     return Padding(
       padding: const EdgeInsets.fromLTRB(20, 24, 0, 0),
       child: Column(
@@ -451,7 +450,7 @@ class HomeScreen extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
-                  color: AppColors.secondaryOrange.withOpacity(0.15),
+                  color: AppColors.secondaryOrange.withValues(alpha: 0.15),
                   shape: BoxShape.circle,
                 ),
                 child: const Icon(Icons.calendar_today, color: AppColors.secondaryOrange),
