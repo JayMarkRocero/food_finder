@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../models/recipe.dart';
 import '../constants/app_colors.dart';
 import 'favorite_button.dart';
+import '../utils/recipe_image.dart';
 
 // The main recipe card used in horizontal carousels (Featured, Trending,
 // Recommended, etc. on the Home screen). Image on top, info below.

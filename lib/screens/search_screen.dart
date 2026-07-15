@@ -31,13 +31,9 @@ class _SearchScreenState extends State<SearchScreen> {
     final recipeProvider = context.watch<RecipeProvider>();
     final favoriteProvider = context.watch<FavoriteProvider>();
     final searchProvider = context.watch<SearchProvider>();
-    final results = searchProvider.apply(recipeProvider.recipes, favoriteProvider.favoriteIds);
 
-    // Show the history/category browse view only when there's no active
-    // query AND no active category filter. Previously this only checked
-    // `query`, so picking a category never switched the view to results.
-    final showHistory =
-        searchProvider.query.isEmpty && searchProvider.categoryFilter == null;
+    final results = searchProvider.apply(recipeProvider.recipes, favoriteProvider.favoriteIds);
+    final showHistory = searchProvider.query.isEmpty;
 
     return Scaffold(
       appBar: AppBar(title: const Text('Search')),
@@ -47,14 +43,15 @@ class _SearchScreenState extends State<SearchScreen> {
             padding: const EdgeInsets.fromLTRB(20, 8, 20, 12),
             child: TextField(
               controller: _controller,
+              style: TextStyle(color: Theme.of(context).colorScheme.onSurface),
               onChanged: (v) => searchProvider.setQuery(v),
               onSubmitted: (_) => searchProvider.commitToHistory(),
               decoration: InputDecoration(
                 hintText: 'Search recipes, ingredients, category...',
-                prefixIcon: const Icon(Icons.search),
+                prefixIcon: Icon(Icons.search, color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.6)),
                 suffixIcon: searchProvider.query.isNotEmpty
                     ? IconButton(
-                        icon: const Icon(Icons.clear),
+                        icon: Icon(Icons.clear, color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.6)),
                         onPressed: () {
                           _controller.clear();
                           searchProvider.setQuery('');
@@ -72,15 +69,6 @@ class _SearchScreenState extends State<SearchScreen> {
               scrollDirection: Axis.horizontal,
               padding: const EdgeInsets.symmetric(horizontal: 20),
               children: [
-                // Active category chip — only shows once a category is
-                // selected from "Browse by Category". Tapping it clears
-                // the category and returns to the browse view.
-                if (searchProvider.categoryFilter != null)
-                  _filterChip(
-                    label: searchProvider.categoryFilter!,
-                    selected: true,
-                    onTap: () => searchProvider.setCategoryFilter(null),
-                  ),
                 _filterChip(
                   label: 'Favorites',
                   selected: searchProvider.favoritesOnly,
@@ -242,5 +230,6 @@ class _SearchScreenState extends State<SearchScreen> {
       case SortOption.alphabetical:
         return 'Alphabetical';
     }
+    return '';
   }
 }

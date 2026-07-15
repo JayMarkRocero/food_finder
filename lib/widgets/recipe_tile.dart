@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../models/recipe.dart';
 import '../constants/app_colors.dart';
 import 'favorite_button.dart';
+import '../utils/recipe_image.dart';
 
 // A horizontal list-style tile used in search results, category listings,
 // and favorites — more compact than RecipeCard, good for long scrolling lists.

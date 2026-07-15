@@ -41,14 +41,14 @@ class AboutScreen extends StatelessWidget {
             _infoRow(context, 'Version', '1.0.0'),
             _infoRow(context, 'Flutter', '3.x'),
             _infoRow(context, 'Dart', '3.x'),
-            _infoRow(context, 'Developer', 'Recipe Finder Team'),
+            _infoRow(context, 'Developer', 'Me, My Self, and I'),
           ]),
           const SizedBox(height: 24),
 
           Text(
             'Recipe Finder is a fully offline recipe companion app. Browse dozens of '
             'hand-picked recipes across cuisines, save your favorites, plan your week, '
-            'generate shopping lists automatically, and track nutrition — all without '
+            'generate shopping lists automatically, and track nutrition (eme lang to track nutrition) — all without '
             'needing an internet connection.',
             style: theme.textTheme.bodyMedium,
           ),
