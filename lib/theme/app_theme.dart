@@ -26,7 +26,7 @@ class AppTheme {
     return base.copyWith(
       textTheme: _textTheme(base.textTheme, AppColors.lightTextPrimary,
           AppColors.lightTextSecondary),
-      appBarTheme: AppBarTheme(
+      appBarTheme: const AppBarTheme(
         backgroundColor: AppColors.lightBackground,
         foregroundColor: AppColors.lightTextPrimary,
         elevation: 0,
@@ -40,7 +40,7 @@ class AppTheme {
       cardTheme: CardThemeData(
         color: AppColors.lightCard,
         elevation: 2,
-        shadowColor: Colors.black.withOpacity(0.08),
+        shadowColor: Colors.black.withValues(alpha: 0.08),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         margin: EdgeInsets.zero,
       ),
@@ -83,7 +83,7 @@ class AppTheme {
         ),
       ),
       dividerTheme: DividerThemeData(
-        color: Colors.black.withOpacity(0.06),
+        color: Colors.black.withValues(alpha: 0.06),
         thickness: 1,
       ),
     );
@@ -107,7 +107,7 @@ class AppTheme {
     return base.copyWith(
       textTheme: _textTheme(base.textTheme, AppColors.darkTextPrimary,
           AppColors.darkTextSecondary),
-      appBarTheme: AppBarTheme(
+      appBarTheme: const AppBarTheme(
         backgroundColor: AppColors.darkBackground,
         foregroundColor: AppColors.darkTextPrimary,
         elevation: 0,
@@ -163,7 +163,7 @@ class AppTheme {
         ),
       ),
       dividerTheme: DividerThemeData(
-        color: Colors.white.withOpacity(0.08),
+        color: Colors.white.withValues(alpha: 0.08),
         thickness: 1,
       ),
     );

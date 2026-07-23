@@ -33,7 +33,7 @@ class _SearchScreenState extends State<SearchScreen> {
     final searchProvider = context.watch<SearchProvider>();
 
     final results = searchProvider.apply(recipeProvider.recipes, favoriteProvider.favoriteIds);
-    final showHistory = searchProvider.query.isEmpty;
+    final showHistory = searchProvider.query.isEmpty && searchProvider.categoryFilter == null;
 
     return Scaffold(
       appBar: AppBar(title: const Text('Search')),
@@ -99,6 +99,19 @@ class _SearchScreenState extends State<SearchScreen> {
             ),
           ),
           const SizedBox(height: 8),
+
+          if (searchProvider.categoryFilter != null)
+            Padding(
+              padding: const EdgeInsets.fromLTRB(20, 0, 20, 8),
+              child: Row(
+                children: [
+                  Chip(
+                    label: Text('Category: ${searchProvider.categoryFilter}'),
+                    onDeleted: () => searchProvider.setCategoryFilter(null),
+                  ),
+                ],
+              ),
+            ),
 
           Expanded(
             child: showHistory
@@ -230,6 +243,5 @@ class _SearchScreenState extends State<SearchScreen> {
       case SortOption.alphabetical:
         return 'Alphabetical';
     }
-    return '';
   }
 }

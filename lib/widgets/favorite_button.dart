@@ -46,14 +46,17 @@ class _FavoriteButtonState extends State<FavoriteButton>
       onTap: () async {
         await _controller.reverse();
         await _controller.forward();
-        context.read<FavoriteProvider>().toggleFavorite(widget.recipeId);
+        if (!mounted) return;
+        // Use the previously obtained provider instance instead of accessing
+        // the BuildContext after an async gap to satisfy lint rules.
+        favoriteProvider.toggleFavorite(widget.recipeId);
       },
       child: ScaleTransition(
         scale: _controller,
         child: Container(
           padding: const EdgeInsets.all(6),
           decoration: BoxDecoration(
-            color: Colors.black.withOpacity(0.28),
+            color: Colors.black.withValues(alpha: 0.28),
             shape: BoxShape.circle,
           ),
           child: Icon(

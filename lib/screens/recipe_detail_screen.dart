@@ -8,7 +8,6 @@ import '../widgets/nutrition_card.dart';
 import '../widgets/recipe_card.dart';
 import '../widgets/confirmation_dialog.dart';
 import 'add_edit_recipe_screen.dart';
-import '../utils/recipe_image.dart';
 
 class RecipeDetailScreen extends StatefulWidget {
   final String recipeId;

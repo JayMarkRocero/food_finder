@@ -50,7 +50,7 @@ class NutritionCard extends StatelessWidget {
           width: 44,
           height: 44,
           decoration: BoxDecoration(
-            color: stat.color.withOpacity(0.15),
+            color: stat.color.withValues(alpha: 0.15),
             shape: BoxShape.circle,
           ),
           child: Center(
